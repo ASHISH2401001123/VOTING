@@ -1,0 +1,36 @@
+pragma solidity ^0.8.0;
+
+contract AIVotingAdvisor {
+    
+    function getVotingRecommendation(uint256 proposalId) public pure returns (string memory) {
+        if (proposalId % 2 == 0) {
+            return "Approve";
+        } else {
+            return "Reject";
+        }
+    }
+    
+    function getDetailedRecommendation(uint256 proposalId) public pure returns (string memory) {
+        if (proposalId % 3 == 0) {
+            return "Strongly Approve - This proposal aligns well with governance objectives.";
+        } else if (proposalId % 3 == 1) {
+            return "Neutral - This proposal has balanced pros and cons.";
+        } else {
+            return "Strongly Reject - This proposal does not align with governance objectives.";
+        }
+    }
+    
+    function getRecommendationReason(uint256 proposalId) public pure returns (string memory) {
+        if (proposalId % 5 == 0) {
+            return "This proposal promotes decentralization and innovation.";
+        } else if (proposalId % 5 == 1) {
+            return "This proposal lacks sufficient data for strong endorsement.";
+        } else if (proposalId % 5 == 2) {
+            return "This proposal may lead to centralization risks.";
+        } else if (proposalId % 5 == 3) {
+            return "This proposal provides cost efficiency and sustainability.";
+        } else {
+            return "This proposal contradicts core governance principles.";
+        }
+    }
+}
